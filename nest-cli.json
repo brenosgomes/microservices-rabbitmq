@@ -1,0 +1,39 @@
+{
+  "collection": "@nestjs/schematics",
+  "sourceRoot": "apps/api-primary/src",
+  "monorepo": true,
+  "root": "apps/api-primary",
+  "compilerOptions": {
+    "webpack": true,
+    "tsConfigPath": "apps/api-primary/tsconfig.app.json"
+  },
+  "projects": {
+    "api-primary": {
+      "type": "application",
+      "root": "apps/api-primary",
+      "entryFile": "main",
+      "sourceRoot": "apps/api-primary/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/api-primary/tsconfig.app.json"
+      }
+    },
+    "api-secondary": {
+      "type": "application",
+      "root": "apps/api-secondary",
+      "entryFile": "main",
+      "sourceRoot": "apps/api-secondary/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/api-secondary/tsconfig.app.json"
+      }
+    },
+    "common": {
+      "type": "library",
+      "root": "libs/common",
+      "entryFile": "index",
+      "sourceRoot": "libs/common/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/common/tsconfig.lib.json"
+      }
+    }
+  }
+}
