@@ -10,12 +10,12 @@ export class ProductsApiAService {
     private readonly checkIfProductAlreadyExistsAction: CheckIfProductAlreadyExistsAction,
   ) {}
 
-  create(createProductsApiADto: CreateProductsApiADto) {
-    const verifyProduct = this.checkIfProductAlreadyExistsAction.do(
+  async create(createProductsApiADto: CreateProductsApiADto) {
+    const verifyProduct = await this.checkIfProductAlreadyExistsAction.do(
       createProductsApiADto.name,
     );
 
-    if (verifyProduct) {
+    if (!verifyProduct) {
       return this.createProductAction.do(createProductsApiADto);
     } else {
       throw new BadRequestException('Produto já existe');

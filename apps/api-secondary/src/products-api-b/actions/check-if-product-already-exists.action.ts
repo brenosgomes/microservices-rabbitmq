@@ -2,14 +2,14 @@ import { BadRequestException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import {
-  ProductsApiA,
-  ProductsApiADocument,
-} from '../../schemas/products-api-a';
+  ProductsApiB,
+  ProductsApiBDocument,
+} from '../../schemas/products-api-b';
 
 export class CheckIfProductAlreadyExistsAction {
   constructor(
-    @InjectModel(ProductsApiA.name)
-    private productModel: Model<ProductsApiADocument>,
+    @InjectModel(ProductsApiB.name)
+    private productModel: Model<ProductsApiBDocument>,
   ) {}
 
   async do(name: string) {
