@@ -11,7 +11,7 @@
 
 ## Descrição
 
-API com foco na comunicação de MicroServiços. A primeira aplicação (api-primary) é responsavel por salvar os produtos no banco A e envia-los para o rabbitmq, enquanto a segunda (api-secondary) recebe os dados do rabbitmq e os salva no banco B.
+API com foco na comunicação de MicroServiços. A primeira aplicação (api-primary) é responsável por salvar os produtos no banco A e enviá-los para o rabbitmq, enquanto a segunda (api-secondary) recebe os dados do rabbitmq e os salva no banco B.
 
 ## Instalação
 
