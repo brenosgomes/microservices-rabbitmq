@@ -9,19 +9,20 @@ services:
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: root
-    # volumes:
-    #   - ./data:/data/db
+    volumes:
+      - "/var/lib/mongodb-primary:/data/db"
   mongodb-secondary:
     image: mongo
     restart: always
-    # ports:
-    #   - '27018:27018'
+    ports:
+      - '27018:27017'
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: root
-    # volumes:
-    #   - ./data:/data/db
+    volumes:
+      - "/var/lib/mongodb-secondary:/data/db"
   rabbitmq:
-    image: rabbitmq
+    image: rabbitmq:3-management
     ports:
       - '5672:5672'
+      - '15672:15672'

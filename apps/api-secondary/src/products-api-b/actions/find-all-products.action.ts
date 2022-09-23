@@ -16,7 +16,8 @@ export class FindAllProductsAction {
       this.productModel
         .find()
         .skip(page - 1)
-        .limit(limit),
+        .limit(limit)
+        .sort('_id'),
       this.productModel.count(),
     ]);
     return { results, count };

@@ -1,13 +1,15 @@
-import { IsString, IsOptional } from 'class-validator';
+import { IsString, IsOptional, IsNotEmpty, IsNumber } from 'class-validator';
 
 export class CreateProductsApiADto {
   @IsString()
+  @IsNotEmpty()
   name: string;
 
   @IsString()
   @IsOptional()
   description: string;
 
-  @IsString()
+  @IsNumber()
+  @IsNotEmpty()
   value: number;
 }

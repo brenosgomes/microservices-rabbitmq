@@ -1,6 +1,8 @@
+import { RmqModule } from '@app/common';
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
+import * as Joi from 'joi';
 import { ApiSecondaryController } from './api-secondary.controller';
 import { ApiSecondaryService } from './api-secondary.service';
 import { ProductsApiBModule } from './products-api-b/products-api-b.module';
@@ -10,6 +12,10 @@ import { ProductsApiBModule } from './products-api-b/products-api-b.module';
     ConfigModule.forRoot({
       isGlobal: true,
       envFilePath: './apps/api-secondary/.env',
+      validationSchema: Joi.object({
+        RABBIT_MQ_URI: Joi.string().required(),
+        RABBIT_MQ_PRODUCT_QUEUE: Joi.string().required(),
+      }),
     }),
     MongooseModule.forRootAsync({
       imports: [ConfigModule],
@@ -26,6 +32,7 @@ import { ProductsApiBModule } from './products-api-b/products-api-b.module';
       }),
     }),
     ProductsApiBModule,
+    RmqModule,
   ],
   controllers: [ApiSecondaryController],
   providers: [ApiSecondaryService],

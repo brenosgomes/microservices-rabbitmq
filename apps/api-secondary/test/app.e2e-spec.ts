@@ -1,7 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { INestApplication } from '@nestjs/common';
 import * as request from 'supertest';
-import { ApiSecondaryModule } from './../src/api-secondary.module';
+import { ApiSecondaryModule } from '../src/api-secondary.module';
 
 describe('ApiSecondaryController (e2e)', () => {
   let app: INestApplication;
